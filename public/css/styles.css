@@ -37,3 +37,12 @@
 .form-label {
     padding: 7px 0 2px;
 }
+
+a {
+    color: black;
+}
+
+a:hover {
+    color: #1abc9c;
+    text-decoration: none;
+}

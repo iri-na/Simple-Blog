@@ -4,9 +4,18 @@
 
 <p><%= homeIntro %></p>
 
- <% blogPosts.forEach(function(post) { %>
-    <h1><%=post.postTitle%></h1>
-    <p><%=post.postBody%></p>
- <%})%>
+ <% for(var i = blogPosts.length - 1; i >= 0; i--) { %>
+     <% const titleLink = blogPosts[i].postTitle; %>
+     <% const blogPost = blogPosts[i].postBody; %>
+
+     <a href="posts/<%= titleLink %>"><h1><%= titleLink %></h1></a>
+     <%if (blogPost.length > 300) { %>
+         <% const postPreview = blogPost.substring(0,300) + " ..."; %>
+         <p><%= postPreview %></p>
+     <% } else{ %>
+     <p><%= blogPost %></p>
+     <% } %>
+
+ <%}%>
 
 <%- include('partials/footer') -%>
